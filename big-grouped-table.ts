@@ -7,6 +7,9 @@ class BigGroupedTable extends HTMLElement
   private shadow = this.attachShadow({mode: 'open'});
   private data : ([(string|number)])[] = [];
 
+  private canvas: HTMLCanvasElement;
+  private context: CanvasRenderingContext2D;
+
   constructor()
   {
     super();
@@ -20,21 +23,14 @@ class BigGroupedTable extends HTMLElement
     style.textContent = ':host { display: block; }';
     style.textContent += 'svg { background: #eee; }';
 
-    const svgEl = document.createElementNS(BigGroupedTable.SVG_NS, 'svg');
-    svgEl.setAttribute('width', width);
-    svgEl.setAttribute('height', height);
+    this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('width', width);
+    this.canvas.setAttribute('height', height);
 
-    const title = document.createElementNS(BigGroupedTable.SVG_NS, 'text');
-    title.textContent = 'Big Grouped Table';
-    title.setAttribute('fill', '#339933');
-    title.setAttribute('y', '110');
-    title.setAttribute('x', '50');
-    title.setAttribute('font-size', '64');
-
-    svgEl.appendChild(title);
+    this.context = this.canvas.getContext('2d');
 
     this.shadow.appendChild(style);
-    this.shadow.appendChild(svgEl);
+    this.shadow.appendChild(this.canvas);
   }
 
   public setData(data: ([(string|number)])[]) : BigGroupedTable
@@ -42,6 +38,13 @@ class BigGroupedTable extends HTMLElement
     this.data = data;
 
     return this;
+  }
+
+  private renderRow(index: number) : void
+  {
+    const rowData = this.data[index];
+
+    // Use this.context to draw stuff.
   }
 }
 
