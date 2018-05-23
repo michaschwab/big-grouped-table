@@ -4,13 +4,12 @@ class BigGroupedTable extends HTMLElement
   private static DEFAULT_WIDTH = '100%';
   private static DEFAULT_HEIGHT = '200';
 
-  private shadow : ShadowRoot;
+  private shadow = this.attachShadow({mode: 'open'});
+  private data : ([(string|number)])[] = [];
 
   constructor()
   {
     super();
-
-    this.shadow = this.attachShadow({mode: 'open'});
 
     const width : string = this.getAttribute('width') ||
         BigGroupedTable.DEFAULT_WIDTH;
@@ -36,6 +35,13 @@ class BigGroupedTable extends HTMLElement
 
     this.shadow.appendChild(style);
     this.shadow.appendChild(svgEl);
+  }
+
+  public setData(data: ([(string|number)])[]) : BigGroupedTable
+  {
+    this.data = data;
+
+    return this;
   }
 }
 
