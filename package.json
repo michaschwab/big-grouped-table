@@ -1,0 +1,37 @@
+{
+  "name": "big-grouped-table",
+  "version": "1.0.0",
+  "description": "A flexible web component for showing tables with large datasets that supports complex grouping of data.",
+  "main": "src/big-grouped-table.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaschwab/big-grouped-table.git"
+  },
+  "keywords": [
+    "table",
+    "csv",
+    "canvas",
+    "grouping"
+  ],
+  "author": "Michail Schwab",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/michaschwab/big-grouped-table/issues"
+  },
+  "homepage": "https://github.com/michaschwab/big-grouped-table#readme",
+  "dependencies": {},
+  "jest": {
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
+    "testEnvironment": "@skatejs/ssr/jest"
+  },
+  "devDependencies": {
+    "@skatejs/ssr": "^0.19.3",
+    "jest": "^23.0.0",
+    "jest-canvas-mock": "^1.0.2"
+  }
+}

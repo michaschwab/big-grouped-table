@@ -8,6 +8,6 @@
     "sourceMap": true
   },
   "files": [
-    "big-grouped-table.ts"
+    "src/big-grouped-table.ts"
   ]
 }
